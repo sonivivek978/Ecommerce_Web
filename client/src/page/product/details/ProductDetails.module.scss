@@ -1,0 +1,125 @@
+.productDetailsBody {
+  margin: 45px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .productDetailsBody_info {
+    width: 79%;
+    .productDetails_BoldName {
+      font-size: 25px;
+      font-weight: 600;
+    }
+    .productDetails_opacity {
+      font-size: 20px;
+      opacity: 0.5;
+    }
+
+    .productDetails_Discount {
+      font-size: 17px;
+      color: #6ca8ff;
+      font-weight: 600;
+      margin: 5px 0 0 0;
+    }
+  }
+  .productDetails_price_info {
+    display: flex;
+
+    .productDetails_offPrice {
+      font-size: 17px;
+      opacity: 0.5;
+      margin: 5px 10px;
+      text-decoration: line-through;
+    }
+  }
+  .productDetails_taxfont {
+    font-size: 17px;
+    font-weight: 600;
+    color: green;
+    margin-bottom: 10px;
+  }
+  .productDetails_rating {
+    height: 30px;
+    border-radius: 7%;
+    background-color: #f5f5f5;
+    color: black;
+    text-align: center;
+    width: 55px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    svg {
+      color: #f7bf40;
+    }
+  }
+  .productDetails_colorBtn button {
+    height: 50px;
+    border-radius: 27%;
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 50px;
+    margin-bottom: 20px;
+  }
+  .productDetails_sizeBtn button {
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 50px;
+    margin-bottom: 25px;
+  }
+  .productDetails_BuyBtn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .productDetails_cartBtn {
+      background-color: rgba(64, 107, 154, 0.73);
+      color: #eaf4ff;
+      height: 60px;
+      width: 270px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .productDetails_wishBtn {
+      background-color: rgb(182 254 214);
+      color: #14824f;
+      height: 60px;
+      width: 270px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+  }
+  .productDetailsBody_Prodname {
+    display: flex;
+    justify-content: space-between;
+    .productDetailsBody_wishBtn {
+      border: 1px solid gray;
+      border-radius: 50%;
+      height: 29px;
+      width: 29px;
+      svg {
+        margin-left: 3px;
+        margin-top: 3px;
+      }
+    }
+  }
+  .productDetails_normalFont {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .productDetails_offers_desc {
+    display: flex;
+    justify-content: start;
+    img,
+    svg {
+      margin-right: 5px;
+    }
+  }
+  .productDetails_offers_desc_details {
+    margin: 10px 45px;
+  }
+
+}

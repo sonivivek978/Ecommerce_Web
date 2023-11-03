@@ -1,0 +1,32 @@
+.backgroundImage {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.loginBody {
+  margin: 8% auto auto;
+  width: 25%;
+  background: azure;
+  padding: 85px;
+  border-radius: 25px;
+  position: relative;
+  h5 {
+    text-align: start;
+    margin-bottom: 10px;
+  }
+  .loginBtn {
+    display: flex;
+    justify-content: flex-end;
+    .loginSubmitButton {
+      padding: 10px 60px;
+      margin: 40px 0 10px 0;
+      text-transform: none;
+      background-color: #436565;
+      &:hover {
+        background-color: #436565;
+      }
+    }
+  }
+}

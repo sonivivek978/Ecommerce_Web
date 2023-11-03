@@ -1,0 +1,45 @@
+.ProductBody {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 10px;
+}
+.card_wrapper {
+  overflow: hidden;
+  transition: all 0.7s ease 0s;
+}
+.card_wrapper:hover {
+  transform: scale(1.05);
+}
+.productList_price {
+  // display: flex;
+}
+.productList_info {
+  text-align: left;
+  p{
+    margin-bottom: 10px;
+  }
+  div {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    p {
+      font-size: 13px;
+      opacity: 0.5;
+      margin: 0 5px 0 5px;
+      text-decoration: line-through;
+    }
+  }
+  span {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .productList_discount {
+    color: #6ca8ff;
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 1;
+  }
+}
