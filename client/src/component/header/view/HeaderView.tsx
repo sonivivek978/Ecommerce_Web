@@ -16,13 +16,15 @@ import { Paper } from "@mui/material";
 import { getStorage } from "../../../utils/Auth/Auth";
 import { ProfileMenu } from "./ProfileMenu";
 import { UserProfile } from "./UserProfile";
-import addUserIcon from "../../../assets/user.jpg";
 import { useSelector } from "react-redux";
+import CartIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useNavigate } from "react-router-dom";
 
 export const HeaderView = () => {
   const { refresh } = useSelector((data: any) => data);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [profileMenu, setProfileMenu] = useState<boolean>(false);
+  const navigate = useNavigate();
   const menuId = "primary-search-account-menu";
   const User = getStorage("user_profile");
   const mobileMenuId = "primary-search-account-menu-mobile";
@@ -63,6 +65,17 @@ export const HeaderView = () => {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+              onClick={() => navigate("/product/cart")}
+            >
+              <Badge badgeContent={0} color="error">
+                <CartIcon />
+              </Badge>
+            </IconButton>
+
             <IconButton
               size="large"
               aria-label="show 4 new mails"
