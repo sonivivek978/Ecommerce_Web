@@ -11,7 +11,7 @@ let CartSchema = mongoose.Schema({
         type: String,
         required: false,
       },
-      productName: { 
+      productName: {
         type: String,
         required: false,
       },
@@ -43,11 +43,14 @@ let CartSchema = mongoose.Schema({
           },
         },
       ],
-      size: {
-        type: String,
-        required: false,
-      },
-
+      size: [
+        {
+          productSize: {
+            type: String,
+            required: false,
+          },
+        },
+      ],
       offer: [
         {
           productOffer: {
