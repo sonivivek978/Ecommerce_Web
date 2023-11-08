@@ -111,8 +111,7 @@
     font-weight: 600;
   }
   .productDetails_offers_desc {
-    display: flex;
-    justify-content: start;
+    display: flex-start;
     img,
     svg {
       margin-right: 5px;
@@ -121,5 +120,4 @@
   .productDetails_offers_desc_details {
     margin: 10px 45px;
   }
-
 }
