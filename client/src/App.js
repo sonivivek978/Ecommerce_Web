@@ -7,8 +7,9 @@ import { DashboardComponent } from "./page/dashboard/DashboardComponent";
 import { ProductDetailsComponent } from "./page/product/ProductDetails.Component";
 import { NotFound } from "./component/not_found/NotFound";
 import { PrivateRoute } from "./ProtectedRoutes";
-import "./App.css";
+import { CartComponent } from "./page/product/Cart.Component";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./App.css";
 
 const App = () => {
   return (
@@ -39,6 +40,14 @@ const App = () => {
           element={
             <PrivateRoute>
               <ProductDetailsComponent />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/product/cart"
+          element={
+            <PrivateRoute>
+              <CartComponent />
             </PrivateRoute>
           }
         />
