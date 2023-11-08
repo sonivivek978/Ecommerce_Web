@@ -162,6 +162,7 @@ exports.refreshUser = async (req, res) => {
             userImage: user.userImage,
             verified: user.verified,
             token: BearerToken[1],
+            id: user._id,
           });
         } else {
           console.log("User not found");

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "../../../assets/background.jpg";
 import { Button, Divider, Typography } from "@mui/material";
 import style from "./ProductDetails.module.scss";
@@ -6,14 +6,32 @@ import FavoriteIcon from "@mui/icons-material/FavoriteBorder";
 import StarIcon from "@mui/icons-material/Star";
 import offers from "../../../assets/offer.jpg";
 import Description from "@mui/icons-material/DescriptionOutlined";
+import { useAppDispatch } from "../../../Store";
+import { addCartAction } from "./AddCart.Reducer";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 interface productDetailsProps {
   item: any;
   isLoading: boolean;
   error: any;
 }
+
 export const ProductDetails = (props: productDetailsProps) => {
   const { item, isLoading, error } = props;
+  const dispatch = useAppDispatch();
+  const { data } = useSelector((data: any) => data.refresh);
+  const [productSize, setProductSize] = useState<string>("S");
+  const { id } = useParams<{ id: string }>();
+  let productId: string;
+  if (id) {
+    productId = id;
+  }
+
+  const userId = data?.data?.id;
+  const handleSizeClick = (productSize: { productSize: string }) => {
+    setProductSize(productSize?.productSize);
+  };
   return (
     <div className={style.productDetailsBody}>
       <div>
@@ -67,13 +85,30 @@ export const ProductDetails = (props: productDetailsProps) => {
           Select size{" "}
         </Typography>
         <div className={style.productDetails_sizeBtn}>
-          {item?.size?.map((val: any) => {
-            return <button>{val?.productSize}</button>;
+          {item?.size?.map((val: any, index: number) => {
+            return (
+              <button key={index} onClick={() => handleSizeClick(val)}>
+                {val?.productSize}
+              </button>
+            );
           })}
         </div>
 
         <div className={style.productDetails_BuyBtn}>
-          <Button className={style.productDetails_cartBtn}>ADD TO CART</Button>
+          <Button
+            className={style.productDetails_cartBtn}
+            onClick={() =>
+              dispatch(
+                addCartAction({
+                  userId: userId,
+                  productId: productId,
+                  size: productSize,
+                })
+              )
+            }
+          >
+            ADD TO CART
+          </Button>
           <Button className={style.productDetails_wishBtn}>BUY NOW</Button>
         </div>
         <Typography>
