@@ -5,7 +5,6 @@ import { registerUserSlices } from "./page/register/RegisterComponent.Reducer";
 import { refreshSessionSlices } from "./page/refreshSession/RefreshSession.Reducer";
 import { getProductSlices } from "./page/product/ProductComponent.Reducer";
 import { getProductDetailsSlices } from "./page/product/ProductDetails.Reducer";
-import { getCartSlices } from "./page/product/CartComponent.Reducer";
 const defaultMiddlewareConfig = {
   serializableCheck: {
     ignoredPaths: ["refresh.data.headers", "filters.endDate"],
@@ -18,7 +17,6 @@ export const AppReducer = {
   refresh: refreshSessionSlices.reducer,
   product: getProductSlices.reducer,
   productDetails: getProductDetailsSlices.reducer,
-  getCart: getCartSlices.reducer,
 };
 const store = configureStore({
   reducer: AppReducer,

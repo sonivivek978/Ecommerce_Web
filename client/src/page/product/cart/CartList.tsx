@@ -15,6 +15,9 @@ interface cartListProps {
 }
 export const CartList = (props: cartListProps) => {
   const { item, isLoading, error } = props;
+  console.log('item:111 ', item);
+  console.log('item:122 ', isLoading);
+  console.log('item:133 ', error);
   return (
     <>
       {!isLoading ? (
