@@ -1,4 +1,4 @@
-import { getStorage, removeStorage, setStorage } from "../../utils/Auth/Auth";
+import { setStorage } from "../../utils/Auth/Auth";
 import { axiosConfig } from "../../services/AxiosConfig";
 import { AxiosResponse } from "axios";
 
@@ -18,7 +18,6 @@ export const postLoginUser = async (values: any, { rejectWithValue }: any) => {
       setStorage("user_name", response?.data?.name);
       setStorage("user_email", response?.data?.email);
       setStorage("user_profile", response?.data?.userImage);
-      expiredSession();
     }
     return await response;
   } catch (error: any) {
@@ -26,26 +25,15 @@ export const postLoginUser = async (values: any, { rejectWithValue }: any) => {
   }
 };
 
-export const RefreshSession = async (): Promise<AxiosResponse | undefined> => {
+export const RefreshSession = async (): Promise<AxiosResponse | undefined>  => {
   const Apis = axiosConfig("application/json");
   try {
     const response = await Apis.get("/refresh");
     if (response) {
-      expiredSession()
       return response;
     }
   } catch (error: any) {
+    console.log("error: ", error);
     throw error;
-  }
-};
-
-export const expiredSession = () => {
-  const previousStringDate = new Date(getStorage("previousDate"));
-  const previousDate = previousStringDate ? new Date(previousStringDate) : null;
-  const currentDate = new Date();
-
-  if (!previousDate || currentDate.getDate() !== previousDate.getDate()) {
-    removeStorage();
-    setStorage("previousDate", currentDate.toString());
   }
 };
